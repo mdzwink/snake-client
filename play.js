@@ -1,9 +1,13 @@
 
-const {net, connect, connectingMsg, connectCall} = require('./client')
+const fs = require('fs')
+const { connect, connectingMsg, connectCall } = require('./client')
+const { setupInput } = require('./input');
 
-net;
+
+
+
 connect;
 connectingMsg;
 connectCall;
-
+setupInput(connectCall);
 

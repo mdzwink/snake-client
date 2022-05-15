@@ -1,27 +1,32 @@
 const net = require("net");
+const { IP, PORT } = require("./constants");
+// const setupInput = require('./setupInput')
 
 const connect = () => {
-  const conn = net.createConnection({
-    host: '165.227.47.243',
-    port: '50541'
+  const server = net.createConnection({
+    host: IP,
+    port: PORT
   });
 
   // interpret incoming data as text
-  conn.setEncoding("utf8");
+  server.setEncoding("utf8");
   
-  conn.on('data', (data) => {
+  server.on('data', (data) => {
     console.log(data);
   })
 
-  conn.on('connect', () => {
+  server.on('connect', () => {
     console.log('...connection ESTABLISHED!!! B)');
-    conn.write('Name: BTM');
+    server.write('Name: BOT');
+    
+
+
   })
 
-  return conn;
+  return server;
 };
 
 const connectingMsg = console.log("Connecting ...");
 const connectCall = connect();
 
-module.exports = {net, connect, connectingMsg, connectCall};
+module.exports = { net, connect, connectingMsg, connectCall };
